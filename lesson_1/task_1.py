@@ -4,16 +4,16 @@
 и также проверить тип и содержимое переменных.
 """
 
-print('str --------------------')
+print('str', '-' * 20)
 strings_str = ['разработка', 'сокет', 'декоратор']
 for string in strings_str:
-    print(type(string), string)
+    print('Тип:', type(string), '-', 'Содержимое:', string)
 
-print('\nunicode ----------------')
+print('\nunicode', '-' * 16)
 strings_unicode = [
     '\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430',
     '\u0441\u043e\u043a\u0435\u0442',
     '\u0434\u0435\u043a\u043e\u0440\u0430\u0442\u043e\u0440',
 ]
 for string in strings_unicode:
-    print(type(string), string)
+    print('Тип:', type(string), '-', 'Содержимое:', string)
