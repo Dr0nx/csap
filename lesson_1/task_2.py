@@ -3,5 +3,7 @@
 
 # строка из символов не относящихся к ASCII (латиница) всегда отображается как набор символов
 some_bytes = [b'class', b'function', b'method']
-for byte in some_bytes:
-    print(f'Тип: {eval("type(byte)")}, содержимое: {eval("byte")}, длинна переменной: {eval("len(byte)")}')
+print('\n'.join([f'Тип: {eval("type(x)")},'
+                 f' содержимое: {eval("x")},'
+                 f' длинна переменной: {eval("len(x)")}'
+                 for x in some_bytes]))

@@ -3,15 +3,13 @@
 и также проверить тип и содержимое переменных. """
 
 print('str', '-' * 38)
-strings_str = ['разработка', 'сокет', 'декоратор']
-for string in strings_str:
-    print(f'Тип: {type(string)}, содержимое: {string}')
+some_strings = ['разработка', 'сокет', 'декоратор']
+print('\n'.join([f'Тип: {type(x)}, содержимое: {x}' for x in some_strings]))
 
 print('\nunicode', '-' * 34)
-strings_unicode = [
+some_unicode = [
     '\u0440\u0430\u0437\u0440\u0430\u0431\u043e\u0442\u043a\u0430',
     '\u0441\u043e\u043a\u0435\u0442',
     '\u0434\u0435\u043a\u043e\u0440\u0430\u0442\u043e\u0440',
 ]
-for string in strings_unicode:
-    print(f'Тип: {type(string)}, содержимое: {string}')
+print('\n'.join([f'Тип: {type(x)}, содержимое: {x}' for x in some_unicode]))

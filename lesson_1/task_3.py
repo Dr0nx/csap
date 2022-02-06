@@ -23,12 +23,12 @@ some_bytes = [
     b'\u0444\u0443\u043d\u043a\u0446\u0438\u044f',
     b'\u0074\u0079\u0070\u0065',
 ]
-for word in some_bytes:
-    print(f'Слово \'{word}\' можно записать в байтовом формате.')
+
+print('\n'.join([f'Слово "{x}" можно записать в байтовом формате.' for x in some_bytes]))
 
 print('\n')
 
 # Использую произвольную строку в строковом и байтовом представлении
-some_str = input('Введите строку: ')
-some_bytes = some_str.encode('unicode_escape')
-print(some_str, some_bytes)
+some_strings = input('Введите строку: ')
+some_bytes = some_strings.encode('unicode_escape')
+print(some_strings, some_bytes)
