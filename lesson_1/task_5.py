@@ -9,5 +9,7 @@ for host in 'yandex.ru', 'youtube.com':
     result = Popen(args, stdout=PIPE)
     for line in result.stdout:
         print(line)
-        line = line.decode('windows-1251')
-        print(line)
+
+        print(line.decode('utf-8').encode('windows-1251'))
+        # line = line.decode('utf-8').encode('windows-1251')
+        # print(line)
