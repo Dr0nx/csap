@@ -6,7 +6,7 @@
 from chardet import detect
 
 test_file = 'test_file.txt'
-with open(test_file, 'w', encoding='utf-8') as f:
+with open(test_file, 'w') as f:
     f.write('сетевое программирование\nсокет\nдекоратор')
 
 with open(test_file, 'rb') as f:
