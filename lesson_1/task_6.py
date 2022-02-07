@@ -4,17 +4,16 @@
 он был создан. """
 
 from chardet import detect
-from os.path import isfile
 
-text = ['сетевое программирование', '\n', 'сокет', '\n', 'декоратор']
 test_file = 'test_file.txt'
-if not isfile(test_file):
-    with open(test_file, 'w') as f:
-        f.writelines(text)
-else:
-    with open(test_file, 'r') as f:
-        for line in f:
-            print(line)
-            result = detect(b'line')
-            # line = line.decode(result['encoding']).encode('utf-8')
-            # print(line.decode('utf-8'))
+with open(test_file, 'w', encoding='utf-8') as f:
+    f.write('сетевое программирование\nсокет\nдекоратор')
+
+with open(test_file, 'rb') as f:
+    raw_data = f.read()
+encoding = detect(raw_data)['encoding']
+print('encoding:', encoding, '\n')
+
+with open(test_file, encoding=encoding) as f:
+    for line in f:
+        print(line, end='')
