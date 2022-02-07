@@ -12,4 +12,4 @@ for host in 'yandex.ru', 'youtube.com':
     for line in result.stdout:
         result = detect(line)
         line = line.decode(result['encoding']).encode('utf-8')
-        print(line.decode('utf-8'))
+        print(line.decode('utf-8'), end='')
