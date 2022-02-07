@@ -11,8 +11,8 @@ with open(test_file, 'w') as f:
 
 with open(test_file, 'rb') as f:
     raw_data = f.read()
-encoding = detect(raw_data)['encoding']
-print('encoding:', encoding, '\n')
+    encoding = detect(raw_data)['encoding']
+    print(f'Полученная кодировка: {encoding}\n')
 
 with open(test_file, encoding=encoding) as f:
     for line in f:
