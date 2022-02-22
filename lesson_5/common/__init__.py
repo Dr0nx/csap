@@ -1,0 +1,2 @@
+def variables():
+    return None
