@@ -1,9 +1,15 @@
 """ Утилиты """
 
 import json
+import sys
 from common.variables import *
 
+sys.path.append('../')
+from errors import IncorrectDataRecivedError, NonDictInputError
+from decorators import log
 
+
+@log
 def get_message(client):
     """
     Утилита приема и декодирования сообщения принимает байты, выдает словарь, если принято что-то другое и выдает
@@ -15,15 +21,14 @@ def get_message(client):
     encoded_response = client.recv(MAX_PACKAGE_LENGTH)
     if isinstance(encoded_response, bytes):
         json_response = encoded_response.decode(ENCODING)
-        if not isinstance(json_response, str):
-            raise ValueError
         response = json.loads(json_response)
         if isinstance(response, dict):
             return response
-        raise ValueError
-    raise ValueError
+        raise IncorrectDataRecivedError
+    raise IncorrectDataRecivedError
 
 
+@log
 def send_message(sock, message):
     """
     Утилита кодирования и отправки сообщения, приминает словарь и отправляет его.
@@ -32,7 +37,7 @@ def send_message(sock, message):
     :return:
     """
     if not isinstance(message, dict):
-        raise TypeError
+        raise NonDictInputError
     js_message = json.dumps(message)
     encoded_message = js_message.encode(ENCODING)
     sock.send(encoded_message)
