@@ -10,7 +10,7 @@ import logs.config_server_log
 from common.variables import DEFAULT_PORT, MAX_CONNECTIONS, ACTION, TIME, USER, \
     ACCOUNT_NAME, SENDER, PRESENCE, RESPONSE, ERROR, MESSAGE, MESSAGE_TEXT
 from common.utils import get_message, send_message
-from decos import log
+from decorators import log
 
 # Инициализация логирования сервера.
 LOGGER = logging.getLogger('server')
